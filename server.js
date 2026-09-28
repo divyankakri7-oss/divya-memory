@@ -2,20 +2,27 @@ const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
+const path = require("path");
+
 require("dotenv").config();
 
 const app = express();
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Serve frontend files
+app.use(express.static(path.join(__dirname, "..")));
+
 // MySQL Connection
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: process.env.DB_PASSWORD,
-    database: "divya_memory"
+    host: process.env.MYSQLHOST || "localhost",
+    port: process.env.MYSQLPORT || 3306,
+    user: process.env.MYSQLUSER || "root",
+    password: process.env.MYSQLPASSWORD || process.env.DB_PASSWORD,
+    database: process.env.MYSQLDATABASE || "divya_memory"
 });
 
 db.connect((err) => {
@@ -27,7 +34,7 @@ db.connect((err) => {
     console.log("MySQL connected successfully!");
 });
 
-// EMAIL SETUP
+// Gmail Setup
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -36,9 +43,9 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-// Test route
+// Home page
 app.get("/", (req, res) => {
-    res.send("Divya Memory Backend is Running!");
+    res.sendFile(path.join(__dirname, "..", "index.html"));
 });
 
 // BOOKING API
@@ -80,36 +87,32 @@ app.post("/api/bookings", (req, res) => {
 
         console.log("New booking saved. ID:", result.insertId);
 
-        // EMAIL NOTIFICATION
+        // Email Notification
         const mailOptions = {
             from: `"Divya Memory" <${process.env.EMAIL_USER}>`,
             to: process.env.EMAIL_TO,
             subject: "🔔 New Booking Received — Divya Memory",
 
             html: `
-                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd;">
+                <div style="font-family:Arial,sans-serif;max-width:600px;margin:auto;padding:20px;border:1px solid #ddd;">
 
-                    <h2 style="margin-bottom: 20px;">
-                        📸 New Booking Received
-                    </h2>
+                    <h2>📸 New Booking Received</h2>
 
                     <p><strong>Name:</strong> ${name}</p>
-
                     <p><strong>Phone:</strong> ${phone}</p>
-
                     <p><strong>Event Type:</strong> ${event_type}</p>
-
                     <p><strong>Event Date:</strong> ${event_date}</p>
 
-                    <p><strong>Message:</strong><br>
-                    ${message || "No message provided"}
+                    <p>
+                        <strong>Message:</strong><br>
+                        ${message || "No message provided"}
                     </p>
 
                     <hr>
 
-                    <p style="color: #777;">
-                        This booking was submitted through the
-                        <strong>Divya Memory | Photography & Films</strong> website.
+                    <p style="color:#777;">
+                        This booking was submitted through
+                        <strong>Divya Memory | Photography & Films</strong>.
                     </p>
 
                 </div>
@@ -121,8 +124,6 @@ app.post("/api/bookings", (req, res) => {
             if (emailError) {
                 console.error("Email sending failed:", emailError.message);
 
-                // Booking database me save ho chuki hai,
-                // lekin email send nahi hua.
                 return res.json({
                     success: true,
                     message: "Booking saved, but email notification could not be sent."
@@ -139,7 +140,9 @@ app.post("/api/bookings", (req, res) => {
     });
 });
 
-// START SERVER
-app.listen(3000, () => {
-    console.log("Server running on http://localhost:3000");
+// Start Server
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Divya Memory server running on port ${PORT}`);
 });
