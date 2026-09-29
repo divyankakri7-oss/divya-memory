@@ -125,7 +125,11 @@ const mailOptions = {
 };
 
 // Send email without blocking the booking response
+console.log("Trying to send booking email...");
+
 transporter.sendMail(mailOptions, (emailError, info) => {
+
+    console.log("Email callback received.");
 
     if (emailError) {
         console.error(
@@ -140,7 +144,6 @@ transporter.sendMail(mailOptions, (emailError, info) => {
         info.response
     );
 });
-
 // Tell website immediately that booking was saved
 return res.json({
     success: true,
