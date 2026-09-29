@@ -2023,3 +2023,17 @@ a {
         display: none;
     }
 }
+/* Mobile Hero Fix */
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: 70vh;
+        height: auto;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .hero-content {
+        padding: 30px 20px;
+    }
+}
