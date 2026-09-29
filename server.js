@@ -92,65 +92,90 @@ app.post("/api/bookings", (req, res) => {
 
         console.log("New booking saved. ID:", result.insertId);
 
-       // Email Notification
-const mailOptions = {
-    from: `"Divya Memory" <${process.env.EMAIL_USER}>`,
-    to: process.env.EMAIL_TO,
-    subject: "🔔 New Booking Received — Divya Memory",
 
-    html: `
-        <div style="font-family:Arial,sans-serif;max-width:600px;margin:auto;padding:20px;border:1px solid #ddd;">
+        // Email Notification via Resend
+        console.log("Trying to send booking email via Resend...");
 
-            <h2>📸 New Booking Received</h2>
+        fetch("https://api.resend.com/emails", {
+            method: "POST",
 
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Phone:</strong> ${phone}</p>
-            <p><strong>Event Type:</strong> ${event_type}</p>
-            <p><strong>Event Date:</strong> ${event_date}</p>
+            headers: {
+                "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
+                "Content-Type": "application/json"
+            },
 
-            <p>
-                <strong>Message:</strong><br>
-                ${message || "No message provided"}
-            </p>
+            body: JSON.stringify({
+                from: "Divya Memory <onboarding@resend.dev>",
+                to: [process.env.EMAIL_TO],
 
-            <hr>
+                subject: "🔔 New Booking Received — Divya Memory",
 
-            <p style="color:#777;">
-                This booking was submitted through
-                <strong>Divya Memory | Photography & Films</strong>.
-            </p>
+                html: `
+                    <div style="font-family:Arial,sans-serif;max-width:600px;margin:auto;padding:20px;border:1px solid #ddd;">
 
-        </div>
-    `
-};
+                        <h2>📸 New Booking Received</h2>
 
-// Send email without blocking the booking response
-console.log("Trying to send booking email...");
+                        <p><strong>Name:</strong> ${name}</p>
 
-transporter.sendMail(mailOptions, (emailError, info) => {
+                        <p><strong>Phone:</strong> ${phone}</p>
 
-    console.log("Email callback received.");
+                        <p><strong>Event Type:</strong> ${event_type}</p>
 
-    if (emailError) {
-        console.error(
-            "Email sending failed:",
-            emailError.message
-        );
-        return;
-    }
+                        <p><strong>Event Date:</strong> ${event_date}</p>
 
-    console.log(
-        "Booking notification email sent:",
-        info.response
-    );
+                        <p>
+                            <strong>Message:</strong><br>
+                            ${message || "No message provided"}
+                        </p>
+
+                        <hr>
+
+                        <p style="color:#777;">
+                            This booking was submitted through
+                            <strong>Divya Memory | Photography & Films</strong>.
+                        </p>
+
+                    </div>
+                `
+            })
+        })
+
+        .then(async (response) => {
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                console.error("Resend email failed:", data);
+                return;
+            }
+
+            console.log(
+                "Booking notification email sent via Resend:",
+                data.id
+            );
+        })
+
+        .catch((error) => {
+
+            console.error(
+                "Resend email error:",
+                error.message
+            );
+
+        });
+
+
+        // Tell website immediately that booking was saved
+        return res.json({
+            success: true,
+            message: "Booking submitted successfully!"
+        });
+
+    });
+
 });
-// Tell website immediately that booking was saved
-return res.json({
-    success: true,
-    message: "Booking submitted successfully!"
-});
-            });
-});
+
+
 // Start Server
 const PORT = process.env.PORT || 3000;
 
