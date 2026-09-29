@@ -92,62 +92,62 @@ app.post("/api/bookings", (req, res) => {
 
         console.log("New booking saved. ID:", result.insertId);
 
-        // Email Notification
-        const mailOptions = {
-            from: `"Divya Memory" <${process.env.EMAIL_USER}>`,
-            to: process.env.EMAIL_TO,
-            subject: "🔔 New Booking Received — Divya Memory",
+       // Email Notification
+const mailOptions = {
+    from: `"Divya Memory" <${process.env.EMAIL_USER}>`,
+    to: process.env.EMAIL_TO,
+    subject: "🔔 New Booking Received — Divya Memory",
 
-            html: `
-                <div style="font-family:Arial,sans-serif;max-width:600px;margin:auto;padding:20px;border:1px solid #ddd;">
+    html: `
+        <div style="font-family:Arial,sans-serif;max-width:600px;margin:auto;padding:20px;border:1px solid #ddd;">
 
-                    <h2>📸 New Booking Received</h2>
+            <h2>📸 New Booking Received</h2>
 
-                    <p><strong>Name:</strong> ${name}</p>
-                    <p><strong>Phone:</strong> ${phone}</p>
-                    <p><strong>Event Type:</strong> ${event_type}</p>
-                    <p><strong>Event Date:</strong> ${event_date}</p>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
+            <p><strong>Event Type:</strong> ${event_type}</p>
+            <p><strong>Event Date:</strong> ${event_date}</p>
 
-                    <p>
-                        <strong>Message:</strong><br>
-                        ${message || "No message provided"}
-                    </p>
+            <p>
+                <strong>Message:</strong><br>
+                ${message || "No message provided"}
+            </p>
 
-                    <hr>
+            <hr>
 
-                    <p style="color:#777;">
-                        This booking was submitted through
-                        <strong>Divya Memory | Photography & Films</strong>.
-                    </p>
+            <p style="color:#777;">
+                This booking was submitted through
+                <strong>Divya Memory | Photography & Films</strong>.
+            </p>
 
-                </div>
-            `
-        };
+        </div>
+    `
+};
 
-        transporter.sendMail(mailOptions, (emailError, info) => {
+// Send email without blocking the booking response
+transporter.sendMail(mailOptions, (emailError, info) => {
 
-            if (emailError) {
-                console.error("Email sending failed:", emailError.message);
+    if (emailError) {
+        console.error(
+            "Email sending failed:",
+            emailError.message
+        );
+        return;
+    }
 
-                return res.json({
-                    success: true,
-                    message: "Booking saved, but email notification could not be sent."
-                });
-            }
-
-            console.log(
-                "Booking notification email sent:",
-                info.response
-            );
-
-            res.json({
-                success: true,
-                message: "Booking submitted successfully!"
-            });
-        });
-    });
+    console.log(
+        "Booking notification email sent:",
+        info.response
+    );
 });
 
+// Tell website immediately that booking was saved
+return res.json({
+    success: true,
+    message: "Booking submitted successfully!"
+});
+            });
+});
 // Start Server
 const PORT = process.env.PORT || 3000;
 
