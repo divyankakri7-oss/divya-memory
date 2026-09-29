@@ -22,7 +22,10 @@ const db = mysql.createConnection({
     port: process.env.MYSQLPORT || 3306,
     user: process.env.MYSQLUSER || "root",
     password: process.env.MYSQLPASSWORD || process.env.DB_PASSWORD,
-    database: process.env.MYSQLDATABASE || "divya_memory"
+    database: process.env.MYSQLDATABASE || "divya_memory",
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 db.connect((err) => {
