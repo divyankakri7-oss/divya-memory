@@ -2037,3 +2037,16 @@ a {
         padding: 30px 20px;
     }
 }
+@media (max-width: 768px) {
+    .hero {
+        min-height: 100vh;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .hero-content {
+        width: 90%;
+        padding: 20px;
+    }
+}
