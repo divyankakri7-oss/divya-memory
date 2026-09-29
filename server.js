@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve frontend files
-app.use(express.static(path.join(__dirname, "..")));
+app.use(express.static(__dirname));
 
 // MySQL Connection
 const db = mysql.createConnection({
@@ -45,7 +45,7 @@ const transporter = nodemailer.createTransport({
 
 // Home page
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "..", "index.html"));
+    res.sendFile(path.join(__dirname, "index.html"));
 });
 
 // BOOKING API
@@ -130,7 +130,10 @@ app.post("/api/bookings", (req, res) => {
                 });
             }
 
-            console.log("Booking notification email sent:", info.response);
+            console.log(
+                "Booking notification email sent:",
+                info.response
+            );
 
             res.json({
                 success: true,
