@@ -1,0 +1,2025 @@
+/* ========================================
+   DIVYA MEMORY
+   Photography & Films
+======================================== */
+
+
+/* ========================================
+   RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0b0b0b;
+    color: #f5f0e8;
+    font-family: "Poppins", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ========================================
+   NAVBAR
+======================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    background: rgba(10, 10, 10, 0.78);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+
+    z-index: 1000;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1;
+}
+
+.logo span {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 28px;
+    font-weight: 600;
+
+    letter-spacing: 4px;
+}
+
+.logo small {
+    margin-top: 5px;
+
+    color: #c9a96e;
+
+    font-size: 8px;
+    letter-spacing: 5px;
+}
+
+
+/* NAVIGATION */
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.navbar nav a {
+    position: relative;
+
+    color: #eeeeee;
+
+    font-size: 12px;
+    letter-spacing: 0.5px;
+
+    transition: 0.3s ease;
+}
+
+.navbar nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 1px;
+
+    background: #c9a96e;
+
+    transition: 0.3s ease;
+}
+
+.navbar nav a:hover {
+    color: #c9a96e;
+}
+
+.navbar nav a:hover::after {
+    width: 100%;
+}
+
+
+/* BOOK NOW BUTTON */
+
+.nav-btn {
+    padding: 11px 22px;
+
+    border: 1px solid #c9a96e;
+
+    color: #c9a96e;
+
+    font-size: 11px;
+    letter-spacing: 1px;
+
+    transition: 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: #c9a96e;
+    color: #111111;
+}
+
+
+/* MOBILE MENU BUTTON */
+
+.menu-btn {
+    display: none;
+
+    background: transparent;
+    border: none;
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+/* ========================================
+   HERO SECTION
+======================================== */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.40),
+            rgba(0, 0, 0, 0.68)
+        ),
+        url("hero.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+/* DARK CINEMATIC OVERLAY */
+
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 15%,
+            rgba(0, 0, 0, 0.45) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* HERO CONTENT */
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 90%;
+    max-width: 950px;
+
+    padding: 20px;
+}
+
+
+/* SMALL TITLE */
+
+.hero-small {
+    margin-bottom: 24px;
+
+    color: #d6b875;
+
+    font-size: 11px;
+
+    font-weight: 400;
+
+    letter-spacing: 4px;
+}
+
+
+/* MAIN HEADING */
+
+.hero h1 {
+    margin-bottom: 28px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(55px, 7vw, 95px);
+
+    font-weight: 500;
+
+    line-height: 0.95;
+
+    letter-spacing: -1px;
+}
+
+
+/* GOLD TEXT */
+
+.hero h1 span {
+    display: block;
+
+    color: #d8b879;
+
+    font-style: italic;
+}
+
+
+/* DESCRIPTION */
+
+.hero-text {
+    max-width: 620px;
+
+    margin: 0 auto;
+
+    color: #dddddd;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    font-weight: 300;
+}
+
+
+/* ========================================
+   HERO BUTTONS
+======================================== */
+
+.hero-buttons {
+    margin-top: 36px;
+
+    display: flex;
+    justify-content: center;
+
+    gap: 15px;
+}
+
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 170px;
+
+    padding: 14px 25px;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    transition: all 0.3s ease;
+}
+
+
+/* GOLD BUTTON */
+
+.primary-btn {
+    background: #c9a96e;
+
+    color: #111111;
+}
+
+.primary-btn:hover {
+    background: #e1c68e;
+
+    transform: translateY(-3px);
+}
+
+
+/* OUTLINE BUTTON */
+
+.outline-btn {
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    color: white;
+}
+
+.outline-btn:hover {
+    background: white;
+
+    color: #111111;
+
+    transform: translateY(-3px);
+}
+
+
+/* ========================================
+   SCROLL INDICATOR
+======================================== */
+
+.scroll-down {
+    position: absolute;
+
+    bottom: 28px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #dddddd;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    z-index: 3;
+
+    opacity: 0.8;
+}
+
+
+/* ========================================
+   DEMO SECTION
+======================================== */
+
+.demo-section {
+    min-height: 400px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #f5f0e8;
+
+    color: #222222;
+
+    text-align: center;
+}
+
+.demo-section p {
+    font-size: 13px;
+
+    letter-spacing: 2px;
+}
+
+
+/* ========================================
+   MOBILE / TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .navbar nav {
+        gap: 18px;
+    }
+
+    .navbar nav a {
+        font-size: 11px;
+    }
+
+    .nav-btn {
+        padding: 10px 16px;
+    }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 800px) {
+
+    .navbar nav,
+    .nav-btn {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero {
+        min-height: 650px;
+
+        background-position: center;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .hero-text {
+        font-size: 13px;
+
+        max-width: 500px;
+    }
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 500px) {
+
+    .navbar {
+        height: 72px;
+
+        padding: 0 5%;
+    }
+
+    .logo span {
+        font-size: 23px;
+    }
+
+    .logo small {
+        font-size: 7px;
+
+        letter-spacing: 4px;
+    }
+
+    .hero {
+        min-height: 600px;
+
+        background-position: center;
+    }
+
+    .hero-content {
+        width: 94%;
+    }
+
+    .hero-small {
+        font-size: 8px;
+
+        letter-spacing: 2px;
+
+        margin-bottom: 20px;
+    }
+
+    .hero h1 {
+        font-size: 47px;
+
+        line-height: 0.98;
+    }
+
+    .hero-text {
+        font-size: 12px;
+
+        line-height: 1.7;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 12px;
+    }
+
+    .btn {
+        width: 190px;
+
+        min-width: 190px;
+    }
+
+    .scroll-down {
+        bottom: 18px;
+    }
+}
+
+/* ========================================
+   ABOUT SECTION
+======================================== */
+
+.about-section {
+    background: #f5f0e8;
+    color: #171717;
+
+    padding: 120px 7%;
+}
+
+
+.about-container {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+
+/* ABOUT TEXT */
+
+.about-content {
+    max-width: 560px;
+}
+
+
+.section-label {
+    margin-bottom: 18px;
+
+    color: #a08048;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    font-weight: 500;
+}
+
+
+.about-content h2 {
+    margin-bottom: 25px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(42px, 5vw, 65px);
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    color: #171717;
+}
+
+
+.about-content h2 span {
+    display: block;
+
+    color: #a08048;
+
+    font-style: italic;
+}
+
+
+.about-text {
+    margin-bottom: 18px;
+
+    color: #555;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+}
+
+
+/* ABOUT POINTS */
+
+.about-points {
+    margin-top: 30px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px 25px;
+}
+
+
+.about-points div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border-bottom: 1px solid #ddd3c2;
+
+    padding-bottom: 12px;
+}
+
+
+.about-points strong {
+    color: #a08048;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 20px;
+}
+
+
+.about-points span {
+    color: #333;
+
+    font-size: 11px;
+}
+
+
+/* ABOUT BUTTON */
+
+.about-btn {
+    display: inline-block;
+
+    margin-top: 32px;
+
+    padding: 13px 24px;
+
+    background: #171717;
+
+    color: white;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s ease;
+}
+
+
+.about-btn:hover {
+    background: #a08048;
+
+    transform: translateY(-3px);
+}
+
+
+/* ========================================
+   ABOUT IMAGE
+======================================== */
+
+.about-image {
+    position: relative;
+
+    padding: 20px;
+}
+
+
+.image-frame {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    overflow: hidden;
+}
+
+
+.image-frame::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.35),
+            transparent 50%
+        );
+}
+
+
+.image-frame img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.7s ease;
+}
+
+
+.image-frame:hover img {
+    transform: scale(1.04);
+}
+
+
+/* GOLD FRAME */
+
+.about-image::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 90%;
+
+    height: 95%;
+
+    border: 1px solid #b99a62;
+
+    z-index: 0;
+}
+
+
+.image-frame {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* IMAGE CAPTION */
+
+.image-caption {
+    position: absolute;
+
+    bottom: 35px;
+    left: 40px;
+
+    z-index: 3;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.image-caption span {
+    color: white;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 17px;
+
+    font-style: italic;
+}
+
+
+/* ========================================
+   ABOUT MOBILE
+======================================== */
+
+@media (max-width: 800px) {
+
+    .about-section {
+        padding: 80px 6%;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+    }
+
+    .about-content {
+        max-width: 100%;
+    }
+
+    .about-content h2 {
+        font-size: 48px;
+    }
+
+    .about-image {
+        max-width: 550px;
+
+        margin: auto;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .about-section {
+        padding: 70px 5%;
+    }
+
+    .about-content h2 {
+        font-size: 42px;
+    }
+
+    .about-points {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image {
+        padding: 12px;
+    }
+}
+
+/* ========================================
+   SERVICES SECTION
+======================================== */
+
+.services-section {
+    background: #0b0b0b;
+    color: #f5f0e8;
+
+    padding: 120px 7%;
+}
+
+
+/* HEADING */
+
+.services-heading {
+    max-width: 750px;
+
+    margin: 0 auto 65px;
+
+    text-align: center;
+}
+
+
+.services-heading .section-label {
+    color: #c9a96e;
+
+    margin-bottom: 18px;
+}
+
+
+.services-heading h2 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(42px, 5vw, 65px);
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    margin-bottom: 25px;
+}
+
+
+.services-heading h2 span {
+    display: block;
+
+    color: #c9a96e;
+
+    font-style: italic;
+}
+
+
+.services-intro {
+    max-width: 600px;
+
+    margin: auto;
+
+    color: #aaa;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* SERVICES GRID */
+
+.services-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+/* SERVICE CARD */
+
+.service-card {
+    background: #151515;
+
+    border: 1px solid rgba(201, 169, 110, 0.18);
+
+    overflow: hidden;
+
+    transition: 0.4s ease;
+}
+
+
+.service-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(201, 169, 110, 0.6);
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+
+/* IMAGE */
+
+.service-image {
+    height: 230px;
+
+    overflow: hidden;
+}
+
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.6s ease;
+}
+
+
+.service-card:hover .service-image img {
+    transform: scale(1.08);
+}
+
+
+/* CONTENT */
+
+.service-content {
+    padding: 25px;
+}
+
+
+.service-number {
+    color: #c9a96e;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 18px;
+}
+
+
+.service-content h3 {
+    margin: 8px 0 12px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 27px;
+
+    font-weight: 500;
+}
+
+
+.service-content p {
+    min-height: 60px;
+
+    color: #999;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+.service-content a {
+    display: inline-block;
+
+    margin-top: 18px;
+
+    color: #c9a96e;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s ease;
+}
+
+
+.service-content a:hover {
+    letter-spacing: 2px;
+}
+
+
+/* ========================================
+   SERVICES RESPONSIVE
+======================================== */
+
+@media (max-width: 950px) {
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .services-section {
+        padding: 80px 5%;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-image {
+        height: 250px;
+    }
+
+    .services-heading h2 {
+        font-size: 44px;
+    }
+}
+
+/* ========================================
+   PORTFOLIO SECTION
+======================================== */
+
+.portfolio-section {
+    background: #f5f0e8;
+    color: #171717;
+    padding: 120px 7%;
+}
+
+
+/* ========================================
+   PORTFOLIO HEADING
+======================================== */
+
+.portfolio-heading {
+    max-width: 750px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.portfolio-heading .section-label {
+    color: #a08048;
+}
+
+.portfolio-heading h2 {
+    margin-bottom: 22px;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(45px, 5vw, 68px);
+    font-weight: 500;
+    line-height: 1;
+}
+
+.portfolio-heading h2 span {
+    display: block;
+    color: #a08048;
+    font-style: italic;
+}
+
+.portfolio-intro {
+    max-width: 600px;
+    margin: auto;
+
+    color: #666;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* ========================================
+   PORTFOLIO FILTER BUTTONS
+======================================== */
+
+.portfolio-filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-bottom: 45px;
+}
+
+.filter-btn {
+    background: transparent;
+
+    border: 1px solid #d2c5b0;
+
+    padding: 10px 20px;
+
+    color: #555;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.8px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #171717;
+    border-color: #171717;
+    color: #ffffff;
+}
+
+
+/* ========================================
+   PORTFOLIO GRID
+======================================== */
+
+.portfolio-grid {
+    max-width: 1250px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+/* ========================================
+   PORTFOLIO ITEM
+======================================== */
+
+.portfolio-item {
+    position: relative;
+
+    height: 360px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* HIDDEN ITEMS */
+
+.portfolio-item.hide {
+    display: none;
+}
+
+
+/* ========================================
+   PORTFOLIO IMAGE
+======================================== */
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.7s ease;
+}
+
+
+/* IMAGE HOVER */
+
+.portfolio-item:hover img {
+    transform: scale(1.08);
+}
+
+
+/* ========================================
+   DARK IMAGE OVERLAY
+======================================== */
+
+.portfolio-item::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.75),
+            transparent 60%
+        );
+
+    opacity: 0.85;
+
+    transition: 0.3s ease;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   PORTFOLIO TEXT
+======================================== */
+
+.portfolio-overlay {
+    position: absolute;
+
+    left: 25px;
+    bottom: 22px;
+
+    z-index: 2;
+
+    color: white;
+}
+
+.portfolio-overlay span {
+    color: #d8b879;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+.portfolio-overlay h3 {
+    margin-top: 5px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 27px;
+
+    font-weight: 500;
+}
+
+
+/* ========================================
+   SHOW MORE BUTTON
+======================================== */
+
+.portfolio-show-more {
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 40px;
+}
+
+
+.show-more-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 32px;
+
+    background: #171717;
+
+    color: #ffffff;
+
+    border: 1px solid #171717;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+.show-more-btn:hover {
+    background: #a08048;
+
+    border-color: #a08048;
+
+    transform: translateY(-3px);
+}
+
+
+/* ========================================
+   BOOKING BUTTON
+======================================== */
+
+.portfolio-button {
+    text-align: center;
+
+    margin-top: 45px;
+}
+
+
+.portfolio-btn {
+    background: #171717;
+
+    color: white;
+}
+
+
+.portfolio-btn:hover {
+    background: #a08048;
+
+    transform: translateY(-3px);
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .portfolio-item {
+        height: 330px;
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+    .portfolio-section {
+        padding: 80px 5%;
+    }
+
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .portfolio-item {
+        height: 380px;
+    }
+
+
+    .portfolio-heading h2 {
+        font-size: 45px;
+    }
+
+
+    .portfolio-filters {
+        gap: 7px;
+
+        margin-bottom: 35px;
+    }
+
+
+    .filter-btn {
+        padding: 8px 13px;
+
+        font-size: 9px;
+    }
+
+
+    .show-more-btn {
+        padding: 12px 28px;
+
+        font-size: 9px;
+    }
+
+
+    .portfolio-overlay {
+        left: 20px;
+        bottom: 20px;
+    }
+
+
+    .portfolio-overlay h3 {
+        font-size: 25px;
+    }
+
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 400px) {
+
+    .portfolio-heading h2 {
+        font-size: 40px;
+    }
+
+
+    .filter-btn {
+        padding: 7px 10px;
+
+        font-size: 8px;
+    }
+
+
+    .portfolio-item {
+        height: 350px;
+    }
+
+}
+
+/* ==================== ALBUM PORTFOLIO ==================== */
+
+.album-grid {
+    max-width: 1200px;
+    margin: 50px auto 0;
+    padding: 0 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.album-card {
+    display: block;
+    padding: 45px 35px;
+    text-align: center;
+    text-decoration: none;
+    color: #f5f0e8;
+    background: #111111;
+    border: 1px solid rgba(198, 166, 100, 0.35);
+    border-radius: 10px;
+    transition: all 0.35s ease;
+}
+
+.album-card:hover {
+    transform: translateY(-8px);
+    border-color: #c6a664;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+.album-icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.album-card h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    margin-bottom: 12px;
+    color: #c6a664;
+}
+
+.album-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #d8d2c8;
+    margin-bottom: 25px;
+}
+
+.album-btn {
+    display: inline-block;
+    padding: 11px 24px;
+    border: 1px solid #c6a664;
+    color: #c6a664;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.album-card:hover .album-btn {
+    background: #c6a664;
+    color: #111111;
+}
+
+
+/* Mobile */
+@media (max-width: 700px) {
+
+    .album-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+}
+
+/* ==================== CONTACT & BOOKING ==================== */
+
+.contact-section {
+    background: #0b0b0b;
+    padding: 100px 7%;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 50px auto 0;
+
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 60px;
+}
+
+
+/* Contact Information */
+
+.contact-info {
+    padding: 40px 0;
+}
+
+.contact-info h3,
+.booking-form h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 38px;
+    color: #c6a664;
+    margin-bottom: 20px;
+}
+
+.contact-info > p {
+    color: #cfc8bd;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    max-width: 450px;
+}
+
+
+.contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.contact-detail > span {
+    font-size: 25px;
+    width: 45px;
+}
+
+.contact-detail h4 {
+    color: #c6a664;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.contact-detail p,
+.contact-detail a {
+    color: #e5dfd5;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+
+/* Booking Form */
+
+.booking-form {
+    background: #f5f0e8;
+    padding: 45px;
+    border-radius: 8px;
+}
+
+.booking-form h3 {
+    color: #222;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #333;
+    font-size: 13px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 15px;
+
+    border: 1px solid #d2c8b8;
+    border-radius: 4px;
+
+    background: #fff;
+    color: #222;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #c6a664;
+}
+
+
+.booking-submit {
+    width: 100%;
+    padding: 15px;
+
+    border: none;
+    border-radius: 3px;
+
+    background: #c6a664;
+    color: #111;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.booking-submit:hover {
+    background: #111;
+    color: #c6a664;
+}
+
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .booking-form {
+        padding: 30px 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .contact-info h3,
+    .booking-form h3 {
+        font-size: 32px;
+    }
+
+}
+/* Contact Section Header */
+.contact-section .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-section .section-header .section-subtitle {
+    color: #c6a664;
+    display: block;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.contact-section .section-header h2 {
+    color: #f5f0e8;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.contact-section .section-header p {
+    color: #cfc8bd;
+    font-size: 14px;
+    line-height: 1.8;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+    .contact-section .section-header h2 {
+        font-size: 36px;
+    }
+}
+.packages-section {
+    background: #111111;
+    padding: 100px 7%;
+}
+
+.packages-section .section-header {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.packages-section .section-subtitle {
+    display: block;
+    color: #c6a664;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.packages-section .section-header h2 {
+    color: #f5f0e8;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.packages-section .section-header p {
+    color: #cfc8bd;
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.packages-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.package-card {
+    background: #0b0b0b;
+    border: 1px solid rgba(198, 166, 100, 0.35);
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.35s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-8px);
+    border-color: #c6a664;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+.package-icon {
+    font-size: 42px;
+    margin-bottom: 18px;
+}
+
+.package-card h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    color: #c6a664;
+    margin-bottom: 15px;
+}
+
+.package-description {
+    color: #cfc8bd;
+    font-size: 13px;
+    line-height: 1.7;
+    min-height: 65px;
+    margin-bottom: 25px;
+}
+
+.package-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px;
+    text-align: left;
+}
+
+.package-card ul li {
+    color: #e5dfd5;
+    font-size: 13px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.package-price {
+    color: #c6a664;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 22px;
+}
+
+.package-btn {
+    display: inline-block;
+    padding: 11px 28px;
+    border: 1px solid #c6a664;
+    color: #c6a664;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.package-btn:hover {
+    background: #c6a664;
+    color: #111111;
+}
+
+@media (max-width: 1000px) {
+    .packages-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .packages-section {
+        padding: 80px 20px;
+    }
+
+    .packages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .packages-section .section-header h2 {
+        font-size: 38px;
+    }
+}
+.site-footer {
+    background: #070707;
+    color: #f5f0e8;
+    padding: 70px 7% 0;
+    border-top: 1px solid rgba(198, 166, 100, 0.25);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 50px;
+}
+
+.footer-brand h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 32px;
+    letter-spacing: 3px;
+    color: #f5f0e8;
+    margin-bottom: 18px;
+}
+
+.footer-brand h2 span {
+    color: #c6a664;
+}
+
+.footer-brand p {
+    color: #aaa39a;
+    font-size: 13px;
+    line-height: 1.8;
+    max-width: 350px;
+}
+
+.footer-container h3 {
+    color: #c6a664;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: #aaa39a;
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #c6a664;
+    padding-left: 5px;
+}
+
+.footer-contact p {
+    color: #aaa39a;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 22px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-bottom p {
+    color: #777;
+    font-size: 11px;
+}
+
+@media (max-width: 750px) {
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* ================================
+   MOBILE MENU
+================================ */
+
+@media (max-width: 768px) {
+
+    .menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        color: #c6a664;
+        font-size: 28px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #0b0b0b;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        padding: 25px 0;
+        border-top: 1px solid rgba(198, 166, 100, 0.25);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 12px 0;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-btn {
+        display: none;
+    }
+}
