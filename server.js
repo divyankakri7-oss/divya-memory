@@ -106,8 +106,8 @@ app.post("/api/bookings", (req, res) => {
 
             body: JSON.stringify({
                 from: "Divya Memory <onboarding@resend.dev>",
-                to: ["divyankakri7@gmail.com"],
-
+                to: ["divymemory@gmail.com"],
+                
                 subject: "🔔 New Booking Received — Divya Memory",
 
                 html: `
