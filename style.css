@@ -2023,30 +2023,27 @@ a {
         display: none;
     }
 }
-/* Mobile Hero Fix */
-@media (max-width: 768px) {
 
+/* Final Mobile Hero Fix */
+@media (max-width: 768px) {
     .hero {
-        min-height: 70vh;
-        height: auto;
+        height: 100svh;
+        min-height: 650px;
         background-size: cover;
-        background-position: center center;
+        background-position: 65% center;
+        background-repeat: no-repeat;
     }
 
     .hero-content {
-        padding: 30px 20px;
+        width: 94%;
+        padding: 20px 10px;
     }
 }
-@media (max-width: 768px) {
-    .hero {
-        min-height: 100vh;
-        height: 100vh;
-        background-size: cover;
-        background-position: center;
-    }
 
-    .hero-content {
-        width: 90%;
-        padding: 20px;
+@media (max-width: 500px) {
+    .hero {
+        height: 100svh;
+        min-height: 600px;
+        background-position: 65% center;
     }
 }
