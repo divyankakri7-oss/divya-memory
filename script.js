@@ -86,35 +86,44 @@ if (bookingForm) {
     });
 
 
-    // ========================================
-    // MOBILE MENU
-    // ========================================
+    
+// ========================================
+// MOBILE MENU - FIXED
+// ========================================
 
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.querySelector(".nav-links");
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.querySelector(".navbar nav");
 
-    if (menuBtn && navLinks) {
+if (menuBtn && navLinks) {
 
-        // Open / close mobile menu
-        menuBtn.addEventListener("click", function () {
+    menuBtn.addEventListener("click", function () {
 
-            navLinks.classList.toggle("active");
+        navLinks.classList.toggle("active");
+
+        if (navLinks.classList.contains("active")) {
+            menuBtn.textContent = "✕";
+            menuBtn.setAttribute("aria-expanded", "true");
+        } else {
+            menuBtn.textContent = "☰";
+            menuBtn.setAttribute("aria-expanded", "false");
+        }
+
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("active");
+            menuBtn.textContent = "☰";
+            menuBtn.setAttribute("aria-expanded", "false");
 
         });
 
+    });
 
-        // Close menu after clicking a link
-        navLinks.querySelectorAll("a").forEach(function (link) {
+}
 
-            link.addEventListener("click", function () {
-
-                navLinks.classList.remove("active");
-
-            });
-
-        });
-
-    }
 
 
     // ========================================
